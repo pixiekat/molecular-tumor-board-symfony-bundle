@@ -3,6 +3,7 @@ declare(strict_types=1);
 namespace Pixiekat\MolecularTumorBoardBundle;
 
 use Symfony\Component\HttpKernel\Bundle\AbstractBundle;
+use Symfony\Component\DependencyInjection\Extension\Extension;
 use Pixiekat\MolecularTumorBoardBundle\DependencyInjection\MolecularTumorBoardExtension;
 
 class MolecularTumorBoardBundle extends AbstractBundle {
