@@ -1,14 +1,14 @@
 {
   "name": "pixiekat/molecular-tumor-board-symfony-bundle",
-  "type": "library",
+  "type": "symfony-bundle",
   "autoload": {
       "psr-4": {
-          "Pixiekat\\MolecularTumorBoard\\": "src/"
+          "Pixiekat\\MolecularTumorBoardBundle\\": "src/"
       }
   },
   "autoload-dev": {
       "psr-4": {
-          "Pixiekat\\MolecularTumorBoard\\Tests\\": "tests/"
+          "Pixiekat\\MolecularTumorBoardBundle\\Tests\\": "tests/"
       }
   },
   "authors": [

@@ -1,0 +1,3 @@
+MolecularTumorBoardBundle:
+  resource: '../Controller/'
+  type: annotation
