@@ -1,0 +1,27 @@
+{
+  "name": "pixiekat/molecular-tumor-board-symfony-bundle",
+  "type": "library",
+  "autoload": {
+      "psr-4": {
+          "Pixiekat\\MolecularTumorBoardBundle\\": "src/"
+      }
+  },
+  "autoload-dev": {
+      "psr-4": {
+          "Pixiekat\\MolecularTumorBoardBundle\\Tests\\": "tests/"
+      }
+  },
+  "authors": [
+      {
+          "name": "Katie Elizabeth",
+          "email": "katie@pixiekitten.net"
+      }
+  ],
+  "config": {
+      "sort-packages": true
+  },
+  "require": {
+      "php": "^8.3"
+  },
+  "require-dev": {}
+}
