@@ -1,6 +1,6 @@
 <?php
 declare(strict_types=1);
-namespace Pixiekat\MolecularTumorBoardBundle;
+namespace Pixiekat\MolecularTumorBoard;
 
 use Symfony\Component\HttpKernel\Bundle\AbstractBundle;
 
