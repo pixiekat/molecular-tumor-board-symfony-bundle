@@ -8,4 +8,3 @@ services:
   Pixiekat\MolecularTumorBoardBundle\:
     resource: '../src/*'
     exclude: '../src/{Entity,Migrations,Tests,Kernel.php}'
-  Pixiekat\MolecularTumorBoardBundle\Controller\DashboardController: ~

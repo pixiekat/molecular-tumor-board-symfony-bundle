@@ -9,6 +9,6 @@ use Symfony\Component\Routing\Annotation\Route;
 class DashboardController extends AbstractController {
   #[Route('/', name: 'mtb_dashboard')]
   public function index(): Response {
-    return $this->render('@MolecularTumorBoardBundle/dashboard/index.html.twig', []);
+    return $this->render('@PixiekatMolecularTumorBoardBundle/dashboard/index.html.twig', []);
   }
 }
