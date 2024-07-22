@@ -4,9 +4,9 @@ namespace Pixiekat\MolecularTumorBoard;
 
 use Symfony\Component\HttpKernel\Bundle\AbstractBundle;
 use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
-use Pixiekat\MolecularTumorBoardBundle\DependencyInjection\MolecularTumorBoardExtension;
+use Pixiekat\MolecularTumorBoard\DependencyInjection\MolecularTumorBoardExtension;
 
-class PixiekatMolecularTumorBoardBundle extends AbstractBundle {
+class PixiekatMolecularTumorBoard extends AbstractBundle {
   public function getPath(): string {
       return \dirname(__DIR__);
   }
