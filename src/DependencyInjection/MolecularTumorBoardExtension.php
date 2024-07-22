@@ -1,6 +1,6 @@
 <?php
 declare(strict_types=1);
-namespace Pixiekat\MolecularTumorBoardBundle\DependencyInjection;
+namespace Pixiekat\MolecularTumorBoard\DependencyInjection;
 
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;

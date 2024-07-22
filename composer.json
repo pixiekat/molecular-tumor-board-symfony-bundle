@@ -3,12 +3,12 @@
   "type": "symfony-bundle",
   "autoload": {
       "psr-4": {
-          "Pixiekat\\MolecularTumorBoardBundle\\": "src/"
+          "Pixiekat\\MolecularTumorBoard\\": "src/"
       }
   },
   "autoload-dev": {
       "psr-4": {
-          "Pixiekat\\MolecularTumorBoardBundle\\Tests\\": "tests/"
+          "Pixiekat\\MolecularTumorBoard\\Tests\\": "tests/"
       }
   },
   "authors": [

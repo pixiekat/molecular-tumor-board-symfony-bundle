@@ -1,6 +1,6 @@
 <?php
 declare(strict_types=1);
-namespace Pixiekat\MolecularTumorBoardBundle\Controller;
+namespace Pixiekat\MolecularTumorBoard\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
