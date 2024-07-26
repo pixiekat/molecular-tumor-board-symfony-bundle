@@ -1,0 +1,5 @@
+doctrine_migrations:
+  #  namespace: 'Pixiekat\MolecularTumorBoard'
+  #  directory: ../migrations
+  migrations_paths:
+    'Pixiekat\\MolecularTumorBoard': '%kernel.project_dir%/vendor/pixiekat/molecular-tumor-board-symfony-bundle/migrations'
