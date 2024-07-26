@@ -7,5 +7,12 @@ services:
 
   Pixiekat\MolecularTumorBoard\:
     resource: '../src/*'
-    exclude: '../src/{Entity,Migrations,Tests,Kernel.php}'  Pixiekat\MolecularTumorBoard\Services\TranslationLoader:
+    exclude: '../src/{Entity,Migrations,Tests,Kernel.php}'
+
+  Pixiekat\MolecularTumorBoard\Services\:
+    resource: '../src/Services/*'
+    public: true
+    tags: ['controller.service_arguments']
+
+  Pixiekat\MolecularTumorBoard\Services\TranslationLoader:
     arguments: ['../translations']
