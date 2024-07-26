@@ -1,27 +1,34 @@
 {
-  "name": "pixiekat/molecular-tumor-board-symfony-bundle",
-  "type": "symfony-bundle",
-  "autoload": {
-      "psr-4": {
-          "Pixiekat\\MolecularTumorBoard\\": "src/"
-      }
-  },
-  "autoload-dev": {
-      "psr-4": {
-          "Pixiekat\\MolecularTumorBoard\\Tests\\": "tests/"
-      }
-  },
-  "authors": [
-      {
-          "name": "Katie Elizabeth",
-          "email": "katie@pixiekitten.net"
-      }
-  ],
-  "config": {
-      "sort-packages": true
-  },
-  "require": {
-      "php": "^8.3"
-  },
-  "require-dev": {}
+    "name": "pixiekat/molecular-tumor-board-symfony-bundle",
+    "type": "symfony-bundle",
+    "autoload": {
+        "psr-4": {
+            "Pixiekat\\MolecularTumorBoard\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Pixiekat\\MolecularTumorBoard\\Tests\\": "tests/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Katie Elizabeth",
+            "email": "katie@pixiekitten.net"
+        }
+    ],
+    "config": {
+        "sort-packages": true
+    },
+    "repositories": {
+        "pixiekat/fhir-gen-ops-api-php-bridge": {
+            "type": "vcs",
+            "url": "git@github.com:pixiekat/fhir-gen-ops-api-php-bridge.git"
+        }
+    },
+    "require": {
+        "php": "^8.3",
+        "pixiekat/fhir-gen-ops-api-php-bridge": "dev-main"
+    },
+    "require-dev": {}
 }
