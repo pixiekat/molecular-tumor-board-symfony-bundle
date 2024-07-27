@@ -2,7 +2,13 @@
 declare(strict_types=1);
 namespace Pixiekat\MolecularTumorBoard\Services;
 
+use Doctrine\ORM\EntityManagerInterface;
 use Pixiekat\FhirGenOpsApi\FhirGenOpsApi;
+use Pixiekat\MolecularTumorBoard\Entity;
+use Psr\Log\LoggerInterface as Logger;
+use Symfony\Component\HttpFoundation\RequestStack;
+use Symfony\Contracts\Cache\ItemInterface;
+use Symfony\Contracts\Cache\TagAwareCacheInterface;
 
 class FhirGenOpsApiService {
 
@@ -23,7 +29,12 @@ class FhirGenOpsApiService {
   /**
    * {@inheritdoc}
    */
-  public function __construct() {
+  public function __construct(
+    protected EntityManagerInterface $entityManager,
+    protected TagAwareCacheInterface $cache,
+    protected RequestStack $requestStack,
+    protected Logger $logger,
+  ) {
     $this->fhirGenOpsApi = new FhirGenOpsApi();
   }
 
