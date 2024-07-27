@@ -14,6 +14,13 @@ class FhirGenOpsApiService {
   private FhirGenOpsApi $fhirGenOpsApi;
 
   /**
+   * The subject for this instance of the service.
+   * 
+   * @var string $subject
+   */
+  private ?string $subject = null;
+
+  /**
    * {@inheritdoc}
    */
   public function __construct() {
@@ -28,11 +35,25 @@ class FhirGenOpsApiService {
   }
 
   /**
+   * {@inheritdoc}
+   */
+  public function getSubject(): ?string {
+    return $this->subject;
+  }
+  /**
    * Sets the FhirGenOps API endpoint.
    *
    * @param string $endpoint
    */
   public function setFhirGenOpsApiEndpoint(string $endpoint): static {
     $this->fhirGenOpsApi->setEndpoint($endpoint);
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function setSubject(string $subject): static {
+    $this->subject = $subject;
+    return $this;
   }
 }
