@@ -13,6 +13,17 @@ interface FhirGenOpsApiInterface {
    */
   public function __construct(FhirGenOpsApi $fhirGenOpsApi);
 
+/**
+   * Finds a component in a FHIR resource.
+   *
+   * @param array $data
+   * @param string|null $system
+   * @param string|null $code
+   * @param string|null $display
+   * @return array|null
+   */
+  public static function findComponent($data, $system = null, $code = null, $display = null);
+
   /**
    * Returns the \Pixiekat\FhirGenOpsApi\FhirGenOpsApi instance.
    *
@@ -26,6 +37,16 @@ interface FhirGenOpsApiInterface {
    * @return string
    */
   public function getSubject(): ?string;
+
+/**
+   * Get variants given a subject and range item.
+   * 
+   * @param string $subject
+   * @param string $rangeItem
+   * @param bool $force
+   * @return array
+   */
+  public function getVariantsBySubjectAndRangeItem(string $subject, string $rangeItem, $force = false): array;
 
   /**
    * Sets the FhirGenOps API endpoint.
