@@ -27,8 +27,9 @@
         }
     },
     "require": {
-        "php": "^8.3",
-        "pixiekat/fhir-gen-ops-api-php-bridge": "dev-main"
+        "php": "^8.1 || ^8.2 || ^8.3",
+        "pixiekat/fhir-gen-ops-api-php-bridge": "dev-main",
+        "symfony/framework-bundle": "^6.4 || ^7.0"
     },
     "require-dev": {}
 }
