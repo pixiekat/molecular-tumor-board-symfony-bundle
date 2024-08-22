@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>{% block title %}{% endblock %}</title>
+    {% block stylesheets %}
+      <link href="https://fonts.googleapis.com/css?family=VT323|Montserrat|Give+You+Glory" rel="stylesheet">
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+      <link rel="stylesheet" href="https://use.typekit.net/zpi6wvn.css">
+    {% endblock %}
+  </head>
+  <body>
+    <div class="container">
+      <div class="row region--header">
+        <div class="col-12">
+          <div class="row my-4 py-3">
+            {% for notice in app.flashes('notice') %}
+              <div class="alert alert-primary">
+                {{ notice }}
+              </div>
+            {% endfor %}
+            {% for status in app.flashes('status') %}
+              <div class="alert alert-info">
+                {{ status }}
+              </div>
+            {% endfor %}
+            {% for error in app.flashes('error') %}
+              <div class="alert alert-danger">
+                {{ error }}
+              </div>
+            {% endfor %}
+            {% for success in app.flashes('success') %}
+              <div class="alert alert-success">
+                {{ success }}
+              </div>
+            {% endfor %}
+            {% for info in app.flashes('info') %}
+              <div class="alert alert-info">
+                {{ info }}
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+      <div class="row" role="content">
+        <div class="region--content order-0 col-12 col-md-12">
+          <div class="container-fluid">
+            <div class="row main-content" role="main">
+              {% block body %}{% endblock %}
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer class="row">
+        <div class="col offset-lg-2x offset-md-2x text-center">
+          {% block footer %}
+
+          {% endblock %}
+        </div>
+      </footer>
+    </div>
+    {% block javascripts %}
+      {% block importmap %}{{ importmap('app') }}{% endblock %}
+    {% endblock %}
+  </body>
+</html>
+
+{# dump(lastfm)#}
