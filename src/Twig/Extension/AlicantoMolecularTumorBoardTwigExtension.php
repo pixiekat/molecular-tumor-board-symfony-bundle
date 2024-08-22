@@ -10,7 +10,7 @@ use Twig\TwigFunction;
 class AlicantoMolecularTumorBoardTwigExtension extends AbstractExtension {
   public function getFilters(): array {
     return [
-      //new TwigFilter('get_promotion_manager', [PromotionExtensionRuntime::class, 'getPromotionManager']),
+      new TwigFilter('find_gene', [AlicantoMolecularTumorBoardTwigRuntime::class, 'getGeneByVariant']),
     ];
   }
 

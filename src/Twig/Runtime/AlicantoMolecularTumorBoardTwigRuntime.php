@@ -1,21 +1,34 @@
 <?php
 declare(strict_types=1);
 namespace Pixiekat\MolecularTumorBoard\Twig\Runtime;
-use Pixiekat\AlicantoLearning\DependencyInjection\AlicantoMolecularTumorBoardExtension;
-use Pixiekat\AlicantoLearning\Entity;
-use Pixiekat\AlicantoLearning\Services;
+use Pixiekat\MolecularTumorBoard\DependencyInjection\AlicantoMolecularTumorBoardExtension;
+use Pixiekat\MolecularTumorBoard\Entity;
+use Pixiekat\MolecularTumorBoard\Services;
 use Twig\Extension\RuntimeExtensionInterface;
 
 class AlicantoMolecularTumorBoardTwigRuntime implements RuntimeExtensionInterface {
-  
+
   /**
    * The constructor for this runtime.
    */
   public function __construct(
-    //private Services\AlicantoLearningPathManager $learningPathManager,
+    private Services\FhirGenOpsApiService $fhirGenOpsApi,
   ) { }
 
-  //public function getLearningPathManager(): Services\AlicantoLearningPathManager {
-  //  return $this->learningPathManager;
-  //}
+  public function getGeneByVariant(Entity\Variant $variant): ?string {
+    if (empty($variant->getGene())) {
+      try {
+        $rangeItem = $variant->getRangeItem();
+        $results = $results = $this->fhirGenOpsApi->lookupBuildCoordinatesByRangeOrGene($gene = null, $range = $rangeItem);
+        if ($results && !empty($results)) {
+          if (isset($results['geneSymbol'])) {
+            return $results['geneSymbol'];
+          }
+        }
+      } catch (\Exception $e) {
+        return null;
+      }
+    }
+    return null;
+  }
 }
