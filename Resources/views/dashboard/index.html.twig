@@ -4,4 +4,10 @@
 
 {% block app %}
   <h1>Dashboard</h1>
+
+  {% if form %}
+    {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+      {{ form(form) }}
+    {{ form_end(form) }}
+  {% endif %}
 {% endblock %}

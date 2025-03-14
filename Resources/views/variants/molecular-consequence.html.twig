@@ -1,0 +1,9 @@
+{% if consequences is not empty %}
+  <ul>
+    {% for consequence in consequences %}
+      <li data-molecular-consequence-interpretation="{{ consequence.interpretation|lower }}">
+        <strong>{{ consequence.interpretation|upper }}</strong> / {{ consequence.feature_consequence }}
+      </li>
+    {% endfor %}
+  </ul>
+{% endif %}

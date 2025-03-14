@@ -10,42 +10,54 @@ class Variant implements Interfaces\VariantInterface {
 
   /**
    * The Allelic state of the variant.
-   * 
+   *
    * @var string $allelicState
    */
   private string $allelicState = '';
 
   /**
    * The raw variant components.
-   * 
+   *
    * @var array $components
    */
   private array $components = [];
 
   /**
+   * The gene of the variant.
+   */
+  private ?string $gene = null;
+
+  /**
    * The range item of the variant.
-   * 
+   *
    * @var string $rangeItem
    */
   private string $rangeItem = '';
 
   /**
    * The presence of the variant.
-   * 
+   *
    * @var bool $presence
    */
   private bool $presence = false;
 
   /**
+   * The subject of the variant.
+   *
+   * @var string $subject
+   */
+  private ?string $subject = null;
+
+  /**
    * The raw variant data.
-   * 
+   *
    * @var array $rawVariantData
    */
   private array $rawVariantData = [];
 
   /**
    * The discrete genetic variant ID.
-   * 
+   *
    * @var string $variantId
    */
   private ?string $variantId = null;
@@ -58,6 +70,13 @@ class Variant implements Interfaces\VariantInterface {
       }
     }
     return $this->allelicState;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function getGene(): ?string {
+    return $this->gene ?? null;
   }
 
   /**
@@ -85,6 +104,10 @@ class Variant implements Interfaces\VariantInterface {
     return $this->rawVariantData;
   }
 
+  public function getSubject(): ?string {
+    return $this->subject;
+  }
+
   public function getVariantId(): ?string {
     if (empty($this->variantId)) {
       $part = $this->getRawVariantComponents();
@@ -97,6 +120,14 @@ class Variant implements Interfaces\VariantInterface {
 
   public function setAllelicState(string $allelicState): static {
     $this->allelicState = $allelicState;
+    return $this;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function setGene(string $gene): static {
+    $this->gene = $gene;
     return $this;
   }
 
@@ -126,6 +157,11 @@ class Variant implements Interfaces\VariantInterface {
    */
   public function setRawVariantData(array $rawVariantData): static {
     $this->rawVariantData = $rawVariantData;
+    return $this;
+  }
+
+  public function setSubject(string $subject): static {
+    $this->subject = $subject;
     return $this;
   }
 

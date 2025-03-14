@@ -4,6 +4,7 @@ namespace Pixiekat\MolecularTumorBoard\Twig\Runtime;
 use Pixiekat\MolecularTumorBoard\DependencyInjection\AlicantoMolecularTumorBoardExtension;
 use Pixiekat\MolecularTumorBoard\Entity;
 use Pixiekat\MolecularTumorBoard\Services;
+use Twig\Environment as TwigEnvironment;
 use Twig\Extension\RuntimeExtensionInterface;
 
 class AlicantoMolecularTumorBoardTwigRuntime implements RuntimeExtensionInterface {
@@ -13,6 +14,7 @@ class AlicantoMolecularTumorBoardTwigRuntime implements RuntimeExtensionInterfac
    */
   public function __construct(
     private Services\FhirGenOpsApiService $fhirGenOpsApi,
+    private TwigEnvironment $twig,
   ) { }
 
   public function getGeneByVariant(Entity\Variant $variant): ?string {
@@ -30,5 +32,11 @@ class AlicantoMolecularTumorBoardTwigRuntime implements RuntimeExtensionInterfac
       }
     }
     return null;
+  }
+
+  public function getMolecularConsequences(Entity\Variant $variant): string {
+    $consequences = $this->fhirGenOpsApi->getMolecularConsequences($variant);
+    $template = $this->twig->render('@PixiekatMolecularTumorBoard/variants/molecular-consequence.html.twig', ['consequences' => $consequences]);
+    return $template;
   }
 }

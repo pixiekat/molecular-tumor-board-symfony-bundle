@@ -4,5 +4,42 @@
 
 {% block app %}
   <h1>Tumors</h1>
+  {% if patient is not empty %}
+    <h3>
+      Current Patient: {{ patient }}
+      <small>
+        <a href="{{ path('mtb_dashboard') }}">Reset</a>
+      </small>
+    </h3>
+  {% endif %}
   {{ form(form) }}
+
+  {% if variants is not empty %}
+    <div class="table-responsive">
+      <table class="table table-sm table-hover">
+        <thead>
+          <tr>
+            <th scope="col">Gene</th>
+            <th scope="col">Variant</th>
+            <th scope="col">Molec Impact / Conseq</th>
+            <th scope="col">Type</th>
+            <th scope="col">Exon</th>
+            <th scope="col">Allelic State</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for variant in variants %}
+            <tr data-variant-id="{{ variant.getVariantId }}" data-gene="{{ variant|find_gene }}" data-allelic-state="{{ variant.getAllelicState }}">
+              <td>{{ variant|find_gene }}</td>
+              <td>{{ variant.getVariantId }}</td>
+              <td>{{ variant|find_molecular_consequences|raw }}</td>
+              <td>{# variant.type #}</td>
+              <td>{# variant.exon #}</td>
+              <td>{{ variant.getAllelicState }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  {% endif %}
 {% endblock %}

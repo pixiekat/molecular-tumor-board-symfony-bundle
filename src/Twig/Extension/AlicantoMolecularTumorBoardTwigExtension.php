@@ -11,6 +11,7 @@ class AlicantoMolecularTumorBoardTwigExtension extends AbstractExtension {
   public function getFilters(): array {
     return [
       new TwigFilter('find_gene', [AlicantoMolecularTumorBoardTwigRuntime::class, 'getGeneByVariant']),
+      new TwigFilter('find_molecular_consequences', [AlicantoMolecularTumorBoardTwigRuntime::class, 'getMolecularConsequences']),
     ];
   }
 
